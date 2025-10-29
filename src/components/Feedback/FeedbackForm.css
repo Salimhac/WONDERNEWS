@@ -1,0 +1,239 @@
+/* Feedback Form Styles */
+.feedback-form {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: var(--border-radius);
+  padding: var(--space-2xl);
+  margin: var(--space-xl) 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.form-header h2 {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-md);
+  font-size: var(--text-2xl);
+}
+
+.form-header p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.feedback-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  padding: var(--space-md);
+  background: rgba(42, 42, 42, 0.8);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+/* Rating Stars */
+.rating-stars {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.rating-input {
+  display: none;
+}
+
+.rating-label {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  user-select: none;
+}
+
+.rating-label:hover {
+  transform: scale(1.2);
+}
+
+.rating-input:checked + .rating-label {
+  transform: scale(1.1);
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.submit-btn {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: var(--space-lg) var(--space-2xl);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: var(--text-base);
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow), 0 8px 25px rgba(0, 102, 255, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Form Note */
+.form-note {
+  text-align: center;
+  padding: var(--space-md);
+  background: rgba(0, 102, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.form-note p {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin: 0;
+}
+
+/* Success State */
+.feedback-form.success {
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.success-icon {
+  font-size: 3rem;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  80% { transform: translateY(-5px); }
+}
+
+.success-message h3 {
+  color: var(--success);
+  font-size: var(--text-xl);
+  margin: 0;
+}
+
+.success-message p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-form {
+    padding: var(--space-xl);
+    margin: var(--space-lg) var(--space-md);
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .rating-stars {
+    justify-content: center;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-form {
+    padding: var(--space-lg);
+  }
+
+  .form-header h2 {
+    font-size: var(--text-xl);
+  }
+}
